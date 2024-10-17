@@ -21,17 +21,19 @@ pub struct Args {
 // Command and args prser
 #[derive(Parser, Debug)]
 pub enum Command {
-    // Display entire file
+    /// Display entire file
     Display,
-    // Modify a row/field
+    /// Rplace an item in the csv file, maintaining its dimensions
     Replace {
+        /// row position
         #[clap(short, long)]
         row: usize,
 
+        /// column position
         #[clap(short, long)]
         col: usize,
 
-        // the new item to put into csv file
+        /// the new item to put into csv file eg, "yoyo"
         #[clap(short, long)]
         data: String,
     },
